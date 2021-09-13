@@ -25,7 +25,7 @@ def down():
 def restart():
     turtle.reset()
     turtle.stamp()
-    
+
 turtle.listen()
 turtle.onkey(up,'W')
 turtle.onkey(up,'w')
