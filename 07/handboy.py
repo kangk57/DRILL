@@ -51,7 +51,6 @@ while running:
     hand.draw(hand_x, hand_y)
     update_canvas()
     frame = (frame + 1) % 8
-
     # 캐릭터 좌표 계산
     update_character()
 
