@@ -31,6 +31,15 @@ def update_character():
         hand_x, hand_y = random.randint(0, KPU_WIDTH), random.randint(0, KPU_HEIGHT)
 
 
+def move_character():
+    global x, y
+    global hand_x, hand_y
+    if hand_x < x:
+        character.clip_draw(frame * 100, 0 * 1, 100, 100, x, y)
+    elif hand_x >= x:
+        character.clip_draw(frame * 100, 100 * 1, 100, 100, x, y)
+
+
 open_canvas(KPU_WIDTH, KPU_HEIGHT)
 
 kpu_ground = load_image('KPU_GROUND.png')
@@ -47,7 +56,7 @@ hide_cursor()
 while running:
     clear_canvas()
     kpu_ground.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
-    character.clip_draw(frame * 100, 100 * 1, 100, 100, x, y)
+    move_character()
     hand.draw(hand_x, hand_y)
     update_canvas()
     frame = (frame + 1) % 8
