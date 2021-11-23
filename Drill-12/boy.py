@@ -4,7 +4,6 @@ from ball import Ball
 
 import game_world
 
-# Boy Run Speed
 PIXEL_PER_METER = (10.0 / 0.3)  # 10 pixel 30 cm
 RUN_SPEED_KMPH = 20.0  # Km / Hour
 RUN_SPEED_MPM = (RUN_SPEED_KMPH * 1000.0 / 60.0)
@@ -136,8 +135,7 @@ class Boy:
         self.cur_state.enter(self, None)
 
     def get_bb(self):
-        # fill here
-        return 0, 0, 0, 0
+        return self.x - 50, self.y - 50, self.x + 50, self.y + 50
 
 
     def fire_ball(self):
@@ -159,7 +157,7 @@ class Boy:
     def draw(self):
         self.cur_state.draw(self)
         self.font.draw(self.x - 60, self.y + 50, '(Time: %3.2f)' % get_time(), (255, 255, 0))
-        #fill here
+        draw_rectangle(*self.get_bb())
 
 
     def handle_event(self, event):
